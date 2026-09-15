@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cyboard - Find Your Perfect Boarding House</title>
+</head>
+<body>
+    <!-- Modern dark theme header with better navigation -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Cyboard</h1>
+            <nav>
+                <ul class="nav">
+                    <li><a href="home.html" class="nav-link active">Home</a></li>
+                    <li><a href="properties.html" class="nav-link">Properties</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Modern hero section with better typography and layout -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">The complete platform to find boarding houses.</h1>
+                    <p class="hero-subtitle">Your team's toolkit to stop searching and start living. Securely find, compare, and book the best boarding houses in Iloilo City.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="properties.html" class="btn-primary">Browse Properties</a>
+                        <a href="#features" class="btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="search-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <select id="location" name="location">
+                                <option value="">Anywhere in Iloilo</option>
+                                <option value="jaro">Jaro</option>
+                                <option value="la-paz">La Paz</option>
+                                <option value="mandurriao">Mandurriao</option>
+                                <option value="city-proper">City Proper</option>
+                                <option value="molo">Molo</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="price">Max Price</label>
+                            <select id="price" name="price">
+                                <option value="">Any Price</option>
+                                <option value="2000">₱2,000</option>
+                                <option value="3000">₱3,000</option>
+                                <option value="4000">₱4,000</option>
+                                <option value="5000">₱5,000+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="type">Room Type</label>
+                            <select id="type" name="type">
+                                <option value="">Any Type</option>
+                                <option value="single">Single Room</option>
+                                <option value="shared">Shared Room</option>
+                                <option value="studio">Studio Type</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="search-btn" onclick="window.location.href='properties.html'">
+                        Search Properties
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Added statistics section inspired by design -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">verified properties</div>
+                        <div class="stat-description">All boarding houses are verified and inspected for quality.</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">satisfaction rate</div>
+                        <div class="stat-description">Students love our platform for finding homes.</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">support available</div>
+                        <div class="stat-description">Get help whenever you need it.</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5min</div>
+                        <div class="stat-label">average booking time</div>
+                        <div class="stat-description">Quick and easy booking process.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced features section with better design -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="features-content">
+                    <div class="features-text">
+                        <h2 class="section-title">Faster searching. More innovation.</h2>
+                        <p class="section-description">The platform for rapid progress. Let students focus on finding their perfect home instead of managing complex searches with automated filtering, built-in comparisons, and integrated booking.</p>
+                        
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">🏠</div>
+                                <div>
+                                    <h3>Verified Properties</h3>
+                                    <p>All boarding houses are verified and inspected for quality and safety standards.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">💰</div>
+                                <div>
+                                    <h3>Transparent Pricing</h3>
+                                    <p>No hidden fees. See all costs upfront with our transparent pricing system.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📍</div>
+                                <div>
+                                    <h3>Prime Locations</h3>
+                                    <p>Properties near universities, business districts, and transportation hubs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="features-visual">
+                        <div class="feature-card-demo">
+                            <div class="demo-header">
+                                <span class="demo-title">Make searching seamless.</span>
+                                <span class="demo-subtitle">Tools for students to find and book faster.</span>
+                            </div>
+                            <div class="demo-search">
+                                <input type="text" placeholder="Search..." readonly>
+                                <div class="demo-filters">
+                                    <span class="demo-filter">📍 Jaro</span>
+                                    <span class="demo-filter">💰 ₱5,000</span>
+                                    <span class="demo-filter">🏠 Studio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern CTA section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to find your new home?</h2>
+                <p>Join thousands of students who found their perfect boarding house through Cyboard</p>
+                <a href="properties.html" class="cta-btn">View All Properties</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Cyboard. All rights reserved. | Find your perfect boarding house in Iloilo City</p>
+        </div>
+    </footer>
+    
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!auth.isLoggedIn()) {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

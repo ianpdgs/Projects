@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cyboard - Find Your Perfect Boarding House</title>
+</head>
+<body class="auth-body">
+    <!-- Complete redesign with modern dark theme inspired by design images -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1 class="logo">Cyboard</h1>
+                <p class="auth-subtitle">The complete platform to find your perfect boarding house in Iloilo City</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Sign In</button>
+                <button class="tab-btn" onclick="switchTab('register')">Get Started</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form" class="auth-form active">
+                <h2>Welcome back</h2>
+                <p class="form-subtitle">Sign in to access your account and find boarding houses</p>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-email">Email address</label>
+                        <input type="email" id="login-email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="auth-btn primary">Sign In</button>
+                </form>
+                <div class="demo-credentials">
+                    <p><strong>Demo Admin Account:</strong></p>
+                    <p>Email: admin@cyboard.com</p>
+                    <p>Password: admin123</p>
+                </div>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="auth-form">
+                <h2>Create your account</h2>
+                <p class="form-subtitle">Join thousands of students finding their perfect boarding house</p>
+                <form onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="register-name">Full Name</label>
+                        <input type="text" id="register-name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email address</label>
+                        <input type="email" id="register-email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" name="password" required minlength="6" placeholder="Create a password">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" name="confirmPassword" required minlength="6" placeholder="Confirm your password">
+                    </div>
+                    <button type="submit" class="auth-btn primary">Get Started</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (auth.isLoggedIn()) {
+                window.location.href = 'home.html';
+            }
+        });
+
+        function switchTab(tab) {
+            // Remove active class from all tabs and forms
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.auth-form').forEach(form => form.classList.remove('active'));
+            
+            // Add active class to selected tab and form
+            event.target.classList.add('active');
+            document.getElementById(tab + '-form').classList.add('active');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const email = formData.get('email');
+            const password = formData.get('password');
+
+            const result = auth.login(email, password);
+            
+            if (result.success) {
+                showMessage(result.message, 'success');
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 1000);
+            } else {
+                showMessage(result.message, 'error');
+            }
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const password = formData.get('password');
+            const confirmPassword = formData.get('confirmPassword');
+
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match', 'error');
+                return;
+            }
+
+            console.log("[v0] Attempting registration for:", email);
+            const result = auth.register({ name, email, password });
+            console.log("[v0] Registration result:", result);
+            
+            if (result.success) {
+                showMessage(result.message, 'success');
+                console.log("[v0] Registration successful, checking auth state before redirect");
+                console.log("[v0] Auth isLoggedIn:", auth.isLoggedIn());
+                console.log("[v0] Current user:", auth.getCurrentUser());
+                
+                setTimeout(() => {
+                    console.log("[v0] Redirecting to home.html");
+                    window.location.href = 'home.html';
+                }, 1500); // Increased timeout to ensure localStorage is written
+            } else {
+                showMessage(result.message, 'error');
+            }
+        }
+    </script>
+</body>
+</html>
