@@ -1,0 +1,326 @@
+<!-- index.html - Main Page for Adding and Searching Applications -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Application Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏥 Patient Application Tracker</h1>
+            <p>Manage and track patient applications efficiently</p>
+            <button class="view-results-btn" onclick="viewResults()">View All Results</button>
+        </div>
+
+        <div class="content">
+            <!-- Form Section -->
+            <div class="form-section">
+                <h2>Add New Application</h2>
+                <form id="applicationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientName">Patient Name</label>
+                            <input type="text" id="patientName" required placeholder="Enter patient name">
+                        </div>
+                        <div class="form-group">
+                            <label for="patientEmail">Email</label>
+                            <input type="email" id="patientEmail" required placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientPhone">Phone</label>
+                            <input type="tel" id="patientPhone" required placeholder="Enter phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="applicationDate">Application Date</label>
+                            <input type="date" id="applicationDate" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="serviceType">Service Type</label>
+                            <select id="serviceType" required>
+                                <option value="">Select a service</option>
+                                <option value="Consultation">Consultation</option>
+                                <option value="Surgery">Surgery</option>
+                                <option value="Checkup">Checkup</option>
+                                <option value="Therapy">Therapy</option>
+                                <option value="Vaccination">Vaccination</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Priority Level</label>
+                            <select id="priority">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Urgent">Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Additional Notes</label>
+                        <textarea id="notes" placeholder="Any additional information..."></textarea>
+                    </div>
+                    <button type="submit">Add Application</button>
+                </form>
+            </div>
+
+            <!-- Search and filter section -->
+            <div class="search-section">
+                <input type="text" id="searchInput" placeholder="Search by patient name or email..." class="search-input">
+                <select id="filterStatus" class="filter-select">
+                    <option value="">All Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+                <select id="filterService" class="filter-select">
+                    <option value="">All Services</option>
+                    <option value="Consultation">Consultation</option>
+                    <option value="Surgery">Surgery</option>
+                    <option value="Checkup">Checkup</option>
+                    <option value="Therapy">Therapy</option>
+                    <option value="Vaccination">Vaccination</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button class="export-btn" onclick="exportData()">Export to CSV</button>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <h3>Total Applications</h3>
+                    <div class="stat-value" id="totalApps">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending</h3>
+                    <div class="stat-value" id="pendingApps">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Approved</h3>
+                    <div class="stat-value" id="approvedApps">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Rejected</h3>
+                    <div class="stat-value" id="rejectedApps">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit modal for editing applications -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Application</h2>
+            <form id="editForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editPatientName">Patient Name</label>
+                        <input type="text" id="editPatientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPatientEmail">Email</label>
+                        <input type="email" id="editPatientEmail" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editPatientPhone">Phone</label>
+                        <input type="tel" id="editPatientPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editApplicationDate">Application Date</label>
+                        <input type="date" id="editApplicationDate" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editServiceType">Service Type</label>
+                        <select id="editServiceType" required>
+                            <option value="Consultation">Consultation</option>
+                            <option value="Surgery">Surgery</option>
+                            <option value="Checkup">Checkup</option>
+                            <option value="Therapy">Therapy</option>
+                            <option value="Vaccination">Vaccination</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPriority">Priority Level</label>
+                        <select id="editPriority">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Urgent">Urgent</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="editNotes">Additional Notes</label>
+                    <textarea id="editNotes"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn-save">Save Changes</button>
+                    <button type="button" class="btn-cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize applications array from localStorage
+        let applications = JSON.parse(localStorage.getItem("applications")) || []
+
+        // Set today's date as default
+        document.getElementById("applicationDate").valueAsDate = new Date()
+
+        // Form submission
+        document.getElementById("applicationForm").addEventListener("submit", function (e) {
+            e.preventDefault()
+
+            const newApplication = {
+                id: Date.now(),
+                name: document.getElementById("patientName").value,
+                email: document.getElementById("patientEmail").value,
+                phone: document.getElementById("patientPhone").value,
+                date: document.getElementById("applicationDate").value,
+                service: document.getElementById("serviceType").value,
+                priority: document.getElementById("priority").value,
+                notes: document.getElementById("notes").value,
+                status: "Pending",
+            }
+
+            applications.push(newApplication)
+            saveApplications()
+            updateStats()
+            this.reset()
+            document.getElementById("applicationDate").valueAsDate = new Date()
+            alert("Application added successfully!")
+        })
+
+        document.getElementById("searchInput").addEventListener("input", updateStats)
+        document.getElementById("filterStatus").addEventListener("change", updateStats)
+        document.getElementById("filterService").addEventListener("change", updateStats)
+
+        const modal = document.getElementById("editModal")
+        const closeBtn = document.querySelector(".close")
+        const editForm = document.getElementById("editForm")
+
+        closeBtn.addEventListener("click", closeModal)
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) closeModal()
+        })
+
+        document.querySelector(".btn-cancel").addEventListener("click", closeModal)
+
+        editForm.addEventListener("submit", (e) => {
+            e.preventDefault()
+
+            const app = applications.find((a) => a.id === editingId)
+            if (app) {
+                app.name = document.getElementById("editPatientName").value
+                app.email = document.getElementById("editPatientEmail").value
+                app.phone = document.getElementById("editPatientPhone").value
+                app.date = document.getElementById("editApplicationDate").value
+                app.service = document.getElementById("editServiceType").value
+                app.priority = document.getElementById("editPriority").value
+                app.notes = document.getElementById("editNotes").value
+
+                saveApplications()
+                updateStats()
+                closeModal()
+                alert("Application updated successfully!")
+            }
+        })
+
+        function openEditModal(id) {
+            const app = applications.find((a) => a.id === id)
+            if (app) {
+                editingId = id
+                document.getElementById("editPatientName").value = app.name
+                document.getElementById("editPatientEmail").value = app.email
+                document.getElementById("editPatientPhone").value = app.phone
+                document.getElementById("editApplicationDate").value = app.date
+                document.getElementById("editServiceType").value = app.service
+                document.getElementById("editPriority").value = app.priority
+                document.getElementById("editNotes").value = app.notes
+                modal.style.display = "block"
+            }
+        }
+
+        function closeModal() {
+            modal.style.display = "none"
+            editingId = null
+        }
+
+        function updateStatus(id, newStatus) {
+            const app = applications.find((a) => a.id === id)
+            if (app) {
+                app.status = newStatus
+                saveApplications()
+                updateStats()
+            }
+        }
+
+        function deleteApplication(id) {
+            if (confirm("Are you sure you want to delete this application?")) {
+                applications = applications.filter((a) => a.id !== id)
+                saveApplications()
+                updateStats()
+            }
+        }
+
+        function updateStats() {
+            const searchTerm = document.getElementById("searchInput").value.toLowerCase()
+            const filterStatus = document.getElementById("filterStatus").value
+            const filterService = document.getElementById("filterService").value
+
+            const filtered = applications.filter(app => {
+                const matchesSearch = app.name.toLowerCase().includes(searchTerm) || app.email.toLowerCase().includes(searchTerm)
+                const matchesStatus = !filterStatus || app.status === filterStatus
+                const matchesService = !filterService || app.service === filterService
+                return matchesSearch && matchesStatus && matchesService
+            })
+
+            document.getElementById("totalApps").textContent = filtered.length
+            document.getElementById("pendingApps").textContent = filtered.filter(app => app.status === "Pending").length
+            document.getElementById("approvedApps").textContent = filtered.filter(app => app.status === "Approved").length
+            document.getElementById("rejectedApps").textContent = filtered.filter(app => app.status === "Rejected").length
+        }
+
+        function exportData() {
+            const csv = [
+                ["ID", "Name", "Email", "Phone", "Date", "Service", "Priority", "Notes", "Status"],
+                ...applications.map(app => [app.id, app.name, app.email, app.phone, app.date, app.service, app.priority, app.notes, app.status])
+            ].map(row => row.join(",")).join("\n")
+
+            const blob = new Blob([csv], { type: "text/csv" })
+            const url = URL.createObjectURL(blob)
+            const a = document.createElement("a")
+            a.href = url
+            a.download = "patient_applications.csv"
+            a.click()
+            URL.revokeObjectURL(url)
+        }
+
+        function viewResults() {
+            window.location.href = 'views.html'
+        }
+
+        // Save to localStorage
+        function saveApplications() {
+            localStorage.setItem("applications", JSON.stringify(applications))
+        }
+
+        // Initial update
+        updateStats()
+    </script>
+</body>
+</html>
