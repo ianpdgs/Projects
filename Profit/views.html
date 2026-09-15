@@ -1,0 +1,126 @@
+<!-- Separate Views Page (views.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Views - Student Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+                        <path d="M16 8V16M16 16L20 20M16 16L12 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <h1>Profit Radar - Views</h1>
+                </div>
+                <div class="header-controls">
+                    <button class="back-btn" onclick="goBack()">← Back</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <a class="nav-item active" data-section="views" onclick="switchSection(event)">
+                    <span class="icon">📈</span>
+                    <span>Views</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Views Section -->
+            <section id="views" class="section active">
+                <div class="section-header">
+                    <h2>Views Summary</h2>
+                </div>
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <h3>Total Students</h3>
+                        </div>
+                        <div class="kpi-value" id="totalStudents">0</div>
+                        <div class="kpi-subtitle">Number of entries</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <h3>Total Money Spent</h3>
+                        </div>
+                        <div class="kpi-value" id="totalMoney">₱0.00</div>
+                        <div class="kpi-subtitle">In Philippine Peso</div>
+                    </div>
+                </div>
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3>Detailed Views</h3>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Money Spent (₱)</th>
+                                <th>Day</th>
+                            </tr>
+                        </thead>
+                        <tbody id="viewsTable">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        let studentEntries = []; // Array to store {name, money, day}
+
+        function initViews() {
+            loadStudentData(); // Load entries from localStorage
+            populateViews();
+        }
+
+        function populateViews() {
+            const totalStudents = studentEntries.length;
+            const totalMoney = studentEntries.reduce((sum, entry) => sum + entry.money, 0);
+
+            document.getElementById('totalStudents').textContent = totalStudents;
+            document.getElementById('totalMoney').textContent = `₱${totalMoney.toFixed(2)}`;
+
+            const tbody = document.getElementById('viewsTable');
+            tbody.innerHTML = studentEntries.map(entry => `
+                <tr>
+                    <td>${entry.name}</td>
+                    <td>₱${entry.money.toFixed(2)}</td>
+                    <td>${entry.day}</td>
+                </tr>
+            `).join('');
+        }
+
+        function loadStudentData() {
+            const saved = localStorage.getItem('studentEntries');
+            if (saved) {
+                studentEntries = JSON.parse(saved);
+            }
+        }
+
+        function switchSection(e) {
+            e.preventDefault();
+            // Only one section now, no need to switch
+        }
+
+        function goBack() {
+            window.location.href = 'index.html'; // Assuming main dashboard is index.html
+        }
+
+        window.addEventListener('DOMContentLoaded', initViews);
+    </script>
+</body>
+</html>
