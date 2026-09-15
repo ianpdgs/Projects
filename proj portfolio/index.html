@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My College Projects Portfolio</title>
+    <link href="style.css" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <h1>My College Projects Portfolio</h1>
+        <p>A showcase of projects completed during my 1st and 2nd year of Information Technology</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h3>Filter Projects</h3>
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="game">Game Development</button>
+                <button class="filter-btn" data-filter="year1">1st Year</button>
+                <button class="filter-btn" data-filter="year2">2nd Year</button>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projects">
+            <!-- Project 1 -->
+             
+            <div class="project-card" data-category="web year2">
+                <div class="project-image">
+                    <img src="img/1.png" alt="Ministore Website Screenshot">
+                    <div class="image-comment">Homepage showing featured products and navigation menu</div>
+                </div>
+                <div class="project-info">
+                    <h3>MiniStore E-commerce</h3>
+                    <p>A responsive e-commerce website built with Bootstrap for my Introduction to Web Development course. Features product catalog, shopping cart, and user authentication.</p>
+                    <div class="project-meta">
+                        <span class="project-complexity">Beginner</span>
+                        <div class="project-links">
+                            <a href="#">Live Demo</a> | 
+                            <a href="#">Source Code</a>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Bootstrap</span>
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card" data-category="web year2">
+                <div class="project-image">
+                    <img src="img/2.png" alt="Animated Gallery Screenshot">
+                    <div class="image-comment">Gallery view with animated transitions between images</div>
+                </div>
+                <div class="project-info">
+                    <h3>Interactive Photo Gallery</h3>
+                    <p>An image gallery with smooth animations and lightbox functionality. This was part of my JavaScript fundamentals coursework.</p>
+                    <div class="project-meta">
+                        <span class="project-complexity">Beginner</span>
+                        <div class="project-links">
+                            <a href="#">Live Demo</a> | 
+                            <a href="#">Source Code</a>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">CSS Animations</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card" data-category="web year2">
+                <div class="project-image">
+                    <img src="img/3.png" alt="MilkTea Shop Screenshot">
+                    <div class="image-comment">Menu page displaying various milk tea options with prices</div>
+                </div>
+                <div class="project-info">
+                    <h3>MilkTea Shop Website</h3>
+                    <p>Basic responsive website for a local milk tea shop. Created as a semester project to practice responsive layouts.</p>
+                    <div class="project-meta">
+                        <span class="project-complexity">Beginner</span>
+                        <div class="project-links">
+                            <a href="#">Live Demo</a> | 
+                            <a href="#">Source Code</a>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card" data-category="web year2">
+                <div class="project-image">
+                    <img src="img/Screenshot 2025-08-16 002726.png" alt="Bootstrap Framework Screenshot">
+                    <div class="image-comment">Documentation page showing various Bootstrap components</div>
+                </div>
+                <div class="project-info">
+                    <h3>Bootstrap Component Library</h3>
+                    <p>A reference guide for Bootstrap components that I created while learning the framework. Used as a cheat sheet for my projects.</p>
+                    <div class="project-meta">
+                        <span class="project-complexity">Intermediate</span>
+                        <div class="project-links">
+                            <a href="#">Live Demo</a> | 
+                            <a href="#">Source Code</a>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Bootstrap</span>
+                        <span class="tag">Documentation</span>
+                        <span class="tag">Front-end</span>
+                    </div>
+                </div>
+            </div>
+ 
+            <!-- Project 5 -->
+            <div class="project-card" data-category="web year2">
+                <div class="project-image">
+                    <img src="img/Screenshot 2025-08-16 002822.png" alt="Student Resume Screenshot">
+                    <div class="image-comment">Resume template with education, skills, and experience sections</div>
+                </div>
+                <div class="project-info">
+                    <h3>Student Resume Template</h3>
+                    <p>A customizable Bootstrap template for student resumes. Created for a class assignment on personal branding.</p>
+                    <div class="project-meta">
+                        <span class="project-complexity">Beginner</span>
+                        <div class="project-links">
+                            <a href="#">Live Demo</a> | 
+                            <a href="#">Source Code</a>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Bootstrap</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Templates</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 6 - Final project without extra images -->
+            <div class="project-card" data-category="game year1">
+                <div class="project-image">
+                    <img src="img/4.png" alt="Word Guess Game Screenshot">
+                    <div class="image-comment">Game interface showing guessed letters and remaining attempts</div>
+                </div>
+                <div class="project-info">
+                    <h3>Word Guess Game</h3>
+                    <p>A JavaScript word guessing game with multiple difficulty levels. My first complete JavaScript project.</p>
+                    <div class="project-meta">
+                        <span class="project-complexity">Beginner</span>
+                        <div class="project-links">
+                            <a href="#">Live Demo</a> | 
+                            <a href="#">Source Code</a>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Game</span>
+                        <span class="tag">DOM Manipulation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Interested in collaborating or have questions about my projects? Feel free to reach out!</p>
+            <a href="mailto:student.email@college.edu" class="contact-button">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 College Projects Portfolio. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn"><img src="img/linkedin.png" alt="LinkedIn"></a>
+                <a href="#" aria-label="GitHub"><img src="img/github.png" alt="GitHub"></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal (hidden by default) -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Project Title</h3>
+                <span class="close-modal" id="closeModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-description">
+                    <p id="modalDescription">Project description will appear here.</p>
+                </div>
+                <div class="modal-tech">
+                    <h4>Technologies Used:</h4>
+                    <div class="project-tags" id="modalTags"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                button.classList.add('active');
+                
+                const filter = button.dataset.filter;
+                const projects = document.querySelectorAll('.project-card');
+                
+                projects.forEach(project => {
+                    if (filter === 'all' || project.dataset.category.includes(filter)) {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalImage = document.getElementById('modalImage');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalTags = document.getElementById('modalTags');
+        const closeModal = document.getElementById('closeModal');
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('h3').textContent;
+                const imageSrc = card.querySelector('img').src;
+                const description = card.querySelector('p').textContent;
+                const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent);
+                
+                modalTitle.textContent = title;
+                modalImage.src = imageSrc;
+                modalImage.alt = title;
+                modalDescription.textContent = description;
+                
+                modalTags.innerHTML = '';
+                tags.forEach(tag => {
+                    const tagElement = document.createElement('span');
+                    tagElement.className = 'tag';
+                    tagElement.textContent = tag;
+                    modalTags.appendChild(tagElement);
+                });
+                
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
