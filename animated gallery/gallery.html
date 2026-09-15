@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" contents="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery page</title>
+    <style> internal
+
+        *{
+            box-sizing: border-box;
+        }
+        body {  
+            margin: 0;
+        }
+        .row {
+            padding: 50px;
+        }
+    
+
+        .col1 {
+            width:22%;
+            padding:10px 10px 20px 10px;
+            border: 2px solid black;
+            background-color: white;
+            box-shadow: 10px 10px 5px black;
+            float: left;
+            -ms-transform: rotate(7deg);
+            -webkit-transform: rotate(7deg);
+            transform: rotate(7deg);
+        }
+
+        .col1 span {
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .col1:hover {
+            transform: rotate(0deg);
+        }
+
+        .col2{
+            width:22%;
+            padding: 10px 10px 20px 10px;
+            border: 2px solid black;
+            background-color: white;
+            box-shadow: 10px 10px 5px black;
+            float: left;
+            -ms-transform: rotate(-8deg);
+            -webkit-transform: rotate(-8deg);
+            transform: rotate(-8deg);
+        }
+        .col2 span{
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .col2:hover{
+            transform: rotate(0deg);
+        }
+        
+        .row:after{
+            content: "";
+            display:table;
+            clear:both;
+        }
+
+        @media screen and (max-width:600px){
+            .col1{
+                width:100%;
+            }
+            .col2{
+                width:100%;
+            } 
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+    <div class="col1">
+        <img src="C:\Users\Ian Paul\Desktop\animated gallery\img\94a2dc91-92fe-42d6-abbb-3a2517e9803a.jpg" width="100%">
+        <span>Boracay </span>
+        <p class="desc1">Boracay Island is very small, and you can always enjoy exploring the entire White Beach and its inner streets on foot
+             Boracay Island is very small, and you can always enjoy exploring the entire White Beach and its inner streets on foot. </p>
+    </div>
+
+    <div class="col2">
+        <img src="C:\Users\Ian Paul\Desktop\animated gallery\img\eiffel-tower-paris-france-EIFFEL0217-6ccc3553e98946f18c893018d5b42bde.jpg" width="100%">
+        <span>Eiffel tower </span>
+        <p class="desc2">As true love is supposed to triumph over all adversities and survive, Eiffel also survived.
+             It has stood the test of time and survived difficulties. At this photoshoot, I chose a special place, 
+             where we can see clearly how beautiful Eiffel in Paris is. </p>
+    </div>
+    
+    <!-- -->
+    <div class="col1">
+        <img src="C:\Users\Ian Paul\Desktop\animated gallery\img\images.jpg" width="100%">
+        <span>Palawan </span>
+        <p class="desc1">Palawan is a stunning province in the Philippines that offers visitors a chance to explore some of the most beautiful natural wonders in the world.
+             From pristine beaches and crystal-clear waters to lush forests and stunning limestone cliffs, Palawan is a nature lover's dream. </p>
+    </div>
+    <div class="col2">
+        <img src="C:\Users\Ian Paul\Desktop\animated gallery\img\what-region-is-bohol-belong.jpg" width="100%">
+        <span>Bohol </span>
+        <p class="desc2">Bohol is famous for its Chocolate Hills; its tarsiers, which may be the world's smallest primate; 
+            its heritage sites and old stone churches Bohol is famous for its Chocolate Hills; its tarsiers, which may be the world's smallest primate; 
+            its heritage sites and old stone churches. </p>
+    </div>
+    </div>
+
+    
+</body>
+</html>
