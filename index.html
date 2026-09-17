@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ianpdgs — index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #15171b;
+    --bg-raised: #1b1e23;
+    --line: #2b2e34;
+    --text: #ece8e0;
+    --text-dim: #8f939c;
+    --accent: #5fb3ab;
+    --accent-dim: #3d5f5c;
+    --amber: #d9a441;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  header {
+    margin-bottom: 3rem;
+  }
+
+  .path {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.1rem, 5vw, 2.75rem);
+    line-height: 1.15;
+    margin: 0.6rem 0 0.75rem;
+  }
+
+  header p {
+    color: var(--text-dim);
+    font-size: 0.98rem;
+    max-width: 46ch;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  ul.index {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  ul.index li {
+    border-bottom: 1px solid var(--line);
+  }
+
+  ul.index a {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.1rem 0.25rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: padding-left 0.15s ease, color 0.15s ease;
+  }
+
+  ul.index a:hover,
+  ul.index a:focus-visible {
+    padding-left: 0.5rem;
+    color: var(--accent);
+  }
+
+  ul.index a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  .name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    flex: 0 0 auto;
+  }
+
+  .desc {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    flex: 1;
+  }
+
+  .goto {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  ul.index a:hover .goto,
+  ul.index a:focus-visible .goto {
+    color: var(--amber);
+  }
+
+  footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 2.5rem;
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  @media (max-width: 560px) {
+    .desc { display: none; }
+    ul.index a { justify-content: space-between; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    ul.index a { transition: none; }
+  }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="path">/</div>
+      <h1>Projects, all in one place</h1>
+      <p>A directory of everything deployed under this site. Pick a folder to open it.</p>
+    </header>
+
+    <ul class="index">
+      <li>
+        <a href="cy/">
+          <span class="name">Cy</span>
+          <span class="desc">App with home, login, and admin pages</span>
+          <span class="goto">/cy/ →</span>
+        </a>
+      </li>
+      <li>
+        <a href="e-commerce/">
+          <span class="name">E-commerce</span>
+          <span class="desc">Online store project</span>
+          <span class="goto">/e-commerce/ →</span>
+        </a>
+      </li>
+      <li>
+        <a href="milktea%20shop/">
+          <span class="name">Milktea Shop</span>
+          <span class="desc">Shop front for a milk tea business</span>
+          <span class="goto">/milktea shop/ →</span>
+        </a>
+      </li>
+      <li>
+        <a href="mountains/">
+          <span class="name">Mountains</span>
+          <span class="desc">Mountains site</span>
+          <span class="goto">/mountains/ →</span>
+        </a>
+      </li>
+      <li>
+        <a href="patient%20tracker/">
+          <span class="name">Patient Tracker</span>
+          <span class="desc">Tracker for patient records</span>
+          <span class="goto">/patient tracker/ →</span>
+        </a>
+      </li>
+      <li>
+        <a href="profit/">
+          <span class="name">Profit</span>
+          <span class="desc">Profit tracking tool</span>
+          <span class="goto">/profit/ →</span>
+        </a>
+      </li>
+      <li>
+        <a href="animated%20gallery/">
+          <span class="name">Animated Gallery</span>
+          <span class="desc">Animated image gallery</span>
+          <span class="goto">/animated gallery/ →</span>
+        </a>
+      </li>
+      <li>
+        <a href="proj%20portfolio/">
+          <span class="name">Proj Portfolio</span>
+          <span class="desc">Portfolio site</span>
+          <span class="goto">/proj portfolio/ →</span>
+        </a>
+      </li>
+      <li>
+        <a href="resume/">
+          <span class="name">Resume</span>
+          <span class="desc">Resume site</span>
+          <span class="goto">/resume/ →</span>
+        </a>
+      </li>
+    </ul>
+  </main>
+
+  <footer>ianpdgs.netlify.app</footer>
+</body>
+</html>
